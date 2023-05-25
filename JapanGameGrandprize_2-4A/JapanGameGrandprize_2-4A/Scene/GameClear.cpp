@@ -9,7 +9,7 @@ GameClear::GameClear(short stage_num, unsigned int element_volume[PLAYER_ELEMENT
 	title_font = CreateFontToHandle("Algerian", 100, 1, DX_FONTTYPE_ANTIALIASING_EDGE_8X8, -1, 8);
 	menu_font = CreateFontToHandle("Algerian", 60, 1, DX_FONTTYPE_ANTIALIASING_EDGE_8X8, -1, 4);
 
-	background_image = LoadGraph("Images/Scene/game_clear.png");
+	background_image = LoadGraph("Images/Scene/Gameclear.png");
 
 	if ((background_music = LoadSoundMem("Sounds/BGM/game_clear.mp3")) == -1) {
 		throw "Sounds/BGM/game_clear.mp3";
