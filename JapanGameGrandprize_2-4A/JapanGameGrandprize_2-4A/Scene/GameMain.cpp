@@ -92,7 +92,7 @@ GameMain::GameMain(short stage_num, unsigned int element_volume[PLAYER_ELEMENT],
 	is_spawn_boss = false;
 	delay_animation_count = 0;
 
-	ChangeVolumeSoundMem(200, background_music);
+	ChangeVolumeSoundMem(155, background_music);
 	PlaySoundMem(background_music, DX_PLAYTYPE_LOOP, FALSE);
 
 	old_chemical_bullets[0] = *pouch->GetExplosion();
