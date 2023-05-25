@@ -2,7 +2,7 @@
 #include "AbstractScene.h"
 
 // タイトルにデバックメニューを追加
-#define TITLE_DEBUG
+//#define TITLE_DEBUG
 
 class Title :
     public AbstractScene

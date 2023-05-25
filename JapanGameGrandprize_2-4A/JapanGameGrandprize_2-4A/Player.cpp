@@ -514,7 +514,7 @@ void Player::Update()
 		{
 			if (hp > 0)
 			{
-				//hp--;
+				hp--;
 			}
 			else
 			{
