@@ -18,7 +18,7 @@
 #define PUNCH_INTERVAL 60 * 2
 
 //パンチするまでの時間
-#define PUNCH_STANDBY_TIME 60
+#define PUNCH_STANDBY_TIME 30
 
 #define PUNCH_END_STANDBY_TIME 30
 
@@ -225,50 +225,49 @@ LastBossHand::~LastBossHand()
 //-----------------------------------
 void LastBossHand::Update(const Player* player, const Stage* stage)
 {
-		switch (state)
-		{
-		case ENEMY_STATE::IDOL:
-			//ステージ開始時
-			Idol();
-			break;
-		case ENEMY_STATE::MOVE:
-			Move(player->GetLocation());
-			Animation();
+	switch (state)
+	{
+	case ENEMY_STATE::IDOL:
+		//ステージ開始時
+		Idol();
+		break;
+	case ENEMY_STATE::MOVE:
+		Move(player->GetLocation());
+		Animation();
 
-			break;
-		case ENEMY_STATE::FALL:
-			Fall();
-			break;
-		case ENEMY_STATE::ATTACK:
-			Attack(player->GetLocation());
-			break;
-		case ENEMY_STATE::DEATH:
-			Death();
-			break;
-		default:
-			break;
-		}
-		old_stage_hit = hit_block.hit;
+		break;
+	case ENEMY_STATE::FALL:
+		Fall();
+		break;
+	case ENEMY_STATE::ATTACK:
+		Attack(player->GetLocation());
+		break;
+	case ENEMY_STATE::DEATH:
+		Death();
+		break;
+	default:
+		break;
+	}
+	old_stage_hit = hit_block.hit;
 
-		hit_block = HitStage(stage);
+	hit_block = HitStage(stage);
 
-		if (state != ENEMY_STATE::IDOL)
-		{
-			attack_interval--;
-		}
+	if (state != ENEMY_STATE::IDOL)
+	{
+		attack_interval--;
+	}
 
-		if (CheckHp() && state != ENEMY_STATE::DEATH)
-		{
-			state = ENEMY_STATE::DEATH;
+	if (CheckHp() && state != ENEMY_STATE::DEATH)
+	{
+		state = ENEMY_STATE::DEATH;
 
+		ItemController::GetInstance()->SpawnItem(this);
 		location.x = -100;
 		location.y = -100;
 		death_time = DEATH_TIME;
-
-		ItemController::GetInstance()->SpawnItem(this);
 	}
 
-		UpdateDamageLog();
+	UpdateDamageLog();
 }
 
 //-----------------------------------
@@ -432,6 +431,7 @@ void LastBossHand::Attack(const Location player_location)
 				attack = true;
 				punch = true;
 				speed = PUNCH_SPEED;
+				standby_time = PUNCH_STANDBY_TIME;
 			}
 		}
 	}
@@ -519,7 +519,7 @@ void LastBossHand::Revival()
 	location = spawn_location;
 	state = ENEMY_STATE::MOVE;
 	move = static_cast<HAND_MOVE>(GetRand(2));
-
+	teleporting = false;
 	drop_volume = 0;
 	int volume;
 	for (int i = 0; i < drop_type_volume; i++)
@@ -678,12 +678,12 @@ void LastBossHand::Draw() const
 		if (punch)
 		{
 			DrawRotaGraphF(draw_location.x, draw_location.y,
-				size, M_PI / 180 * angle, images[11][6], TRUE, left_hand);
+				size, 0, images[11][6], TRUE, left_hand);
 		}
 		else
 		{
 			DrawRotaGraphF(draw_location.x, draw_location.y,
-				size, M_PI / 180 * angle, images[11][image_argument % 6], TRUE, left_hand);
+				size,0, images[11][image_argument % 6], TRUE, left_hand);
 		}
 		
 

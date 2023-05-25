@@ -77,7 +77,7 @@ void LastBossBarrier::Update()
 //ƒoƒŠƒA‚Ì“WŠJ
 void LastBossBarrier::Deployment()
 {
-
+	PlaySoundMem(EnemySE::GetBarrierSE().appearance, DX_PLAYTYPE_BACK);
 	
 	if (count % BARRIER_ANIMATION == 0)
 	{
@@ -94,7 +94,7 @@ void LastBossBarrier::Deployment()
 //-----------------------------------
 void LastBossBarrier::HitBullet(const BulletBase* bullet)
 {
-
+	PlaySoundMem(EnemySE::GetBarrierSE().hit, DX_PLAYTYPE_BACK);
 	durability -= bullet->GetDamage();
 	if (durability < 0)
 	{
@@ -143,6 +143,7 @@ bool LastBossBarrier::Break() const
 
 	if (durability <= 0)
 	{
+		PlaySoundMem(EnemySE::GetBarrierSE().breaked, DX_PLAYTYPE_BACK);
 		ret = true;
 	}
 

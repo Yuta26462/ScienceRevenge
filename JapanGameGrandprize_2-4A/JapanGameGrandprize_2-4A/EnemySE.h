@@ -13,6 +13,12 @@ struct LastBossSE
     int punch;
     int special_attack[2];
 };
+struct LastBossBarrierSE 
+{
+    int appearance;
+    int breaked;
+    int hit;
+};
 
 class EnemySE
 {
@@ -24,6 +30,7 @@ private:
    static NomalEnemySE ghost_se; //ゴーストSE
    static NomalEnemySE wyvern_se; //ワイバーンSE
    static LastBossSE last_boss_se; //ラスボスSE
+   static LastBossBarrierSE last_boss_barrier_se;
 
    static int down_se; //ダウン時SE
 
@@ -53,6 +60,8 @@ public:
 
     //ラスボスのSEの取得
     static LastBossSE GetLastBossSE();
+
+    static LastBossBarrierSE GetBarrierSE();
 
     static int GetBulletSE(const ATTRIBUTE);
 };
