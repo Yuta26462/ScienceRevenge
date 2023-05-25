@@ -14,7 +14,7 @@
 //-----------------------------------
 Title::Title()
 {
-	title_font = CreateFontToHandle("Algerian", 100, 1, DX_FONTTYPE_ANTIALIASING_EDGE_8X8, -1, 8);
+	title_font = CreateFontToHandle("Algerian", 90, 1, DX_FONTTYPE_ANTIALIASING_EDGE_8X8, -1, 8);
 
 	menu_font = CreateFontToHandle("Algerian", 60, 1, DX_FONTTYPE_ANTIALIASING_EDGE_8X8, -1, 4);
 
@@ -189,7 +189,7 @@ void Title::Draw()const
 	SetDrawBright(bright, bright, bright);
 
 	DrawGraph(0, 0, background_image, FALSE);
-	DrawStringToHandle(GetDrawCenterX("Elemental War", title_font), 100, "Elemental War", 0x66290E, title_font, 0xFFFFFF);
+	DrawStringToHandle(GetDrawCenterX("Science Revenge", title_font), 100, "Science Revenge", 0x66290E, title_font, 0xFFFFFF);
 
 	for (int i = 0; i < static_cast<int>(MENU::MENU_SIZE); i++)
 	{
