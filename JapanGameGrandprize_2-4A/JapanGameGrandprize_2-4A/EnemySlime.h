@@ -3,7 +3,7 @@
 #include"CameraWork.h"
 #include"BoxCollider.h"
 
-#define DEBUG
+//#define DEBUG
 
 
 enum class SLIME_ATTACK
