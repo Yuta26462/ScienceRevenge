@@ -475,6 +475,7 @@ void Player::PlayerUiDraw(float x, float y) const
 //-----------------------------------
 void Player::Update()
 {
+
 	old_x = location.x;
 	old_y = location.y;
 
@@ -513,7 +514,7 @@ void Player::Update()
 		{
 			if (hp > 0)
 			{
-				hp--;
+				//hp--;
 			}
 			else
 			{
