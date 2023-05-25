@@ -9,6 +9,7 @@
 #include "Pouch.h"
 #include "DxLib.h"
 #include "EnumEnemyType.h"
+#include "DeleteEffect.h"
 #include <vector>
 
 #define JUMP_INERTIA 0.2
@@ -51,12 +52,15 @@ class Player : public BoxCollider
 {
 private:
 
+	DeleteEffect** effect;
+
 	int animation;					//画像アニメーション用
 	int image_count;				//画像の要素数用
 	int* image;						//画像用変数
 	int* jump_image;				//飛んでるときの画像
 	int* attribute_images;			//属性の画像
 	int hp_image;
+	int effect_count;
 	int hp_image_top;
 	int image_size_x, image_size_y; //画像のサイズ
 	int hp;							//体力
@@ -109,6 +113,7 @@ private:
 	PLAYER_STATE player_state;
 	
 	BulletBase** bullet;             //弾の配列
+
 	Stage* stage;					 //ステージへのポインタ
 	EfectBeam* beam;
 	Pouch* pouch;					 //ポーチへのポインタ
@@ -144,6 +149,7 @@ public:
 	void NotFly();
 	void Shoot_Gun();
 	void SortBullet(int);
+	void SortEffect(int);
 	void HpDamage(AttackResource);
 	void Hp_Heal(int);
 	bool HitBlock(const Stage*);

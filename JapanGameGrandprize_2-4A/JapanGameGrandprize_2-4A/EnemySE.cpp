@@ -8,6 +8,7 @@ NomalEnemySE EnemySE::harpy_se = { 0,0 }; //ハーピィSE
 NomalEnemySE EnemySE::mage_se = { 0,0 }; //メイジSE
 NomalEnemySE EnemySE::ghost_se = { 0,0 }; //ゴーストSE
 NomalEnemySE EnemySE::wyvern_se = { 0,0 }; //ワイバーンSE
+LastBossSE EnemySE::last_boss_se = {};
 
 int EnemySE::down_se = 0;		//ダウン時SE
 int EnemySE::explosion_se = 0;	//explosion被弾SE
@@ -28,6 +29,9 @@ void EnemySE::LoadSound()
 	slime_se.attack = LoadSoundMem("Sounds/SE/Stage/EnemyAttack/slimeattack.wav");
 	undead_se.attack = LoadSoundMem("Sounds/SE/Stage/EnemyAttack/undeadattack.wav");
 	wyvern_se.attack = LoadSoundMem("Sounds/SE/Stage/EnemyAttack/wyvernbreath.wav");
+	last_boss_se.punch = LoadSoundMem("Sounds/SE/Stage/EnemyAttack/LastBossPunch.wav");
+	last_boss_se.special_attack[0] = LoadSoundMem("Sounds/SE/Stage/EnemyAttack/SpecialAttackCharge.wav");
+	last_boss_se.special_attack[1] = LoadSoundMem("Sounds/SE/Stage/EnemyAttack/specialattack.wav");
 
 	SetCreateSoundDataType(DX_SOUNDDATATYPE_MEMNOPRESS);
 	explosion_se = LoadSoundMem("Sounds/SE/Stage/PlayerShot/explosion.wav",8);
@@ -45,6 +49,12 @@ void EnemySE::DeleteSound()
 	DeleteSoundMem(slime_se.attack);
 	DeleteSoundMem(undead_se.attack);
 	DeleteSoundMem(wyvern_se.attack);
+	DeleteSoundMem(last_boss_se.punch);
+	for (int i = 0; i < 2; i++)
+	{
+		DeleteSoundMem(last_boss_se.special_attack[i]);
+
+	}
 }
 
 //-----------------------------------
@@ -135,4 +145,10 @@ int EnemySE::GetBulletSE(const ATTRIBUTE attribute)
 
 
 	return return_se;
+}
+
+//ラスボスのSEの取得
+LastBossSE EnemySE::GetLastBossSE()
+{
+	return last_boss_se;
 }

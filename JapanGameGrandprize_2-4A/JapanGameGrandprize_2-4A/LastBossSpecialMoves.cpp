@@ -3,6 +3,7 @@
 #include "CameraWork.h"
 #define _USE_MATH_DEFINES
 #include <math.h>
+#include "EnemySE.h"
 
 //エフェクトの数
 #define EFFECT_NUM 7
@@ -161,6 +162,10 @@ void LastBossSpecialMoves::Update()
 	{
 	case SPECIAL_MOVES_STATE::CHARGE:
 	{
+		if (CheckSoundMem(EnemySE::GetLastBossSE().special_attack[0]) == 0)
+		{
+			PlaySoundMem(EnemySE::GetLastBossSE().special_attack[0], DX_PLAYTYPE_LOOP);
+		}
 		int speed[2] = { EFFECT_SPEED ,EFFECT_SPEED };
 
 		float radian = 0;
@@ -206,6 +211,7 @@ void LastBossSpecialMoves::Update()
 		if (CHARGE_TIME < tick) //チャージ終了
 		{
 			state = SPECIAL_MOVES_STATE::FALL;
+			StopSoundMem(EnemySE::GetLastBossSE().special_attack[0]);
 		}
 	}
 		break;
@@ -330,6 +336,7 @@ void LastBossSpecialMoves::Update()
 					if (effect[i].size > 1.5)
 					{
 						effect[i].draw = false;
+						PlaySoundMem(EnemySE::GetLastBossSE().special_attack[1], DX_PLAYTYPE_BACK);
 					}
 				}
 				break;

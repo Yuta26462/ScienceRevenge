@@ -16,7 +16,7 @@ Element_Item_Drop_Object::Element_Item_Drop_Object(short type,
 
 	state = STATE::NONE;
 
-	item_con = new ItemController();
+	item_con = ItemController::GetInstance();
 	//Œ³‘f‚ğƒ‰ƒ“ƒ_ƒ€‚Éİ’è
 	for (int i = 0; i < 5; i++)
 	{

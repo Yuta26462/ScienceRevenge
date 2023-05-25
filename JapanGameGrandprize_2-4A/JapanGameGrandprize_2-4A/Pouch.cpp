@@ -947,7 +947,7 @@ void Pouch::SetElement(ElementItem* item, int i)
 
 void Pouch::SetElementConstruct(int i, unsigned int element_volume)
 {
-	int a = 10;
+	int a = 999;
 	a = element_volume;
 
 	switch (element[i]->GetType())

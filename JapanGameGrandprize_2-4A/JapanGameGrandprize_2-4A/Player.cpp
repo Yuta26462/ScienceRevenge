@@ -76,6 +76,7 @@ Player::Player()
 	poison = nullptr;
 	pararysis = nullptr;
 	heal = nullptr;
+	effect = nullptr;
 
 	player_state = PLAYER_STATE::STOP;
 
@@ -218,6 +219,11 @@ Player::Player(Stage* stage, unsigned int element_volume[PLAYER_ELEMENT], Pouch*
 	poison = nullptr;
 	pararysis = nullptr;
 	heal = nullptr;
+	effect = new DeleteEffect * [BULLET_MAX];
+	for (int i = 0; i < BULLET_MAX; i++)
+	{
+		effect[i] = nullptr;
+	}
 
 	beam = nullptr;
 
@@ -253,6 +259,8 @@ Player::Player(Stage* stage, unsigned int element_volume[PLAYER_ELEMENT], Pouch*
 		pararysis = pouch->GetPararysis();
 		heal = pouch->GetHeal();
 	}
+
+	effect_count = 0;
 
 	effect_heal.display_permit = FALSE;
 	effect_heal.x = 0;
@@ -299,6 +307,14 @@ void Player::Draw() const
 		if (bullet[i] != nullptr)
 		{
 			bullet[i]->Draw();
+		}
+	}
+
+	for (int i = 0; i < effect_count; i++)
+	{
+		if (effect[i] != nullptr)
+		{
+			effect[i]->Draw();
 		}
 	}
 
@@ -756,8 +772,12 @@ void Player::Update()
 	{
 		if (bullet[i] != nullptr)
 		{
-			if (bullet[i]->GetEfectFlg() || bullet[i]->GetDelete_flg())
+			if (bullet[i]->GetDelete_flg())
 			{
+
+				effect[i] = new DeleteEffect(bullet[i]->GetLocation(), bullet[i]->GetAttribute(), bullet[i]->GetEfectFlg());
+				effect_count++;
+
 				delete bullet[i];
 				bullet[i] = nullptr;
 				SortBullet(i);
@@ -765,6 +785,24 @@ void Player::Update()
 			else
 			{
 				bullet[i]->Update(stage);
+			}
+		}
+
+	}
+
+	for (int i = 0; i < effect_count; i++)
+	{
+		if (effect[i] != nullptr)
+		{
+			if (effect[i]->GetEffectEnd())
+			{
+				delete effect[i];
+				effect[i] = nullptr;
+				SortEffect(i);
+			}
+			else
+			{
+				effect[i]->Update();
 			}
 		}
 	}
@@ -1289,6 +1327,21 @@ void Player::SortBullet(int delete_bullet)
 		bullet[i] = nullptr;
 	}
 	bullet_count--;
+}
+
+void Player::SortEffect(int a)
+{
+	for (int a = i + 1; i < BULLET_MAX; i++)
+	{
+		if (effect[a] == nullptr)
+		{
+			break;
+		}
+
+		effect[a - 1] = effect[a];
+		effect[a] = nullptr;
+	}
+	effect_count--;
 }
 
 

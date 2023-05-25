@@ -171,6 +171,7 @@
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="BulletManager.h" />
     <ClInclude Include="Credit.h" />
+    <ClInclude Include="DeleteEffect.h" />
     <ClInclude Include="Dragon.h" />
     <ClInclude Include="DragonBullet.h" />
     <ClInclude Include="DragonThunder.h" />
@@ -255,6 +256,7 @@
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="BulletManager.cpp" />
     <ClCompile Include="Credit.cpp" />
+    <ClCompile Include="DeleteEffect.cpp" />
     <ClCompile Include="Dragon.cpp" />
     <ClCompile Include="DragonBullet.cpp" />
     <ClCompile Include="DragonThunder.cpp" />

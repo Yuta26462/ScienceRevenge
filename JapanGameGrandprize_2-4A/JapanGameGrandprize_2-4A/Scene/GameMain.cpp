@@ -84,7 +84,7 @@ GameMain::GameMain(short stage_num, unsigned int element_volume[PLAYER_ELEMENT],
 	camera_work = new CameraWork(0, 0, player, stage, this->stage_num);
 
 	stage->SetCameraWork(camera_work);
-	item_controller = new ItemController();
+	item_controller = ItemController::GetInstance();
 
 	bullet_manager = BulletManager::GetInstance();
 

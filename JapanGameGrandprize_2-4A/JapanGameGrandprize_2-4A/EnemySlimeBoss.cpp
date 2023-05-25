@@ -72,7 +72,7 @@ EnemySlimeBoss::EnemySlimeBoss(Location spawn_location)
 		images[num][0] = LoadGraph("Images/Enemy/SlimeBoss3.png");
 	}
 
-	magic_circle_image = LoadGraph("Images/Enemy/cloud.png");
+	magic_circle_image = LoadGraph("Images/Enemy/magic_circle_2.png");
 
 	cloud_brightness = 0;
 	attack_type = ATTACKTYPE::NONE;

@@ -7,6 +7,13 @@ struct NomalEnemySE
     int move; //移動
     int attack; //攻撃
 };
+
+struct LastBossSE
+{
+    int punch;
+    int special_attack[2];
+};
+
 class EnemySE
 {
 private:
@@ -16,6 +23,7 @@ private:
    static NomalEnemySE mage_se; //メイジSE
    static NomalEnemySE ghost_se; //ゴーストSE
    static NomalEnemySE wyvern_se; //ワイバーンSE
+   static LastBossSE last_boss_se; //ラスボスSE
 
    static int down_se; //ダウン時SE
 
@@ -42,6 +50,10 @@ public:
 
     //通常エネミーのSEの取得
     static NomalEnemySE GetEnemySE(const ENEMY_KIND);
+
+    //ラスボスのSEの取得
+    static LastBossSE GetLastBossSE();
+
     static int GetBulletSE(const ATTRIBUTE);
 };
 

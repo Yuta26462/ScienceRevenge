@@ -4,6 +4,8 @@
 #define _USE_MATH_DEFINES
 #include <math.h>
 #include "CameraWork.h"
+#include "ItemController.h"
+#include "EnemySE.h"
 
 #define HAND_IMAGES
 
@@ -98,9 +100,6 @@ LastBossHand::LastBossHand()
 	poison_time = 0;
 	poison_damage = 0;
 	paralysis_time = 0;
-	drop_volume = 0;
-	drop_type_volume = 0;
-	drop_element = nullptr;
 
 	kind = ENEMY_KIND::LAST_BOSS;
 	state = ENEMY_STATE::MOVE;
@@ -111,6 +110,21 @@ LastBossHand::LastBossHand()
 	hit_block.hit = false;
 	old_stage_hit = hit_block.hit;
 
+
+	drop_element = new ElementItem * [7];
+	drop_type_volume = 7;
+
+	int volume = 0;
+
+	for (int i = 0; i < drop_type_volume; i++)
+	{
+		volume = 1 + GetRand(2);
+
+		drop_element[i] = new ElementItem(static_cast<ELEMENT_ITEM>(i));
+
+		drop_element[i]->SetVolume(volume);
+		drop_volume += volume;
+	}
 }
 
 //-----------------------------------
@@ -156,9 +170,6 @@ LastBossHand::LastBossHand(const Location spawn_location, const bool left_hand)
 	poison_time = 0;
 	poison_damage = 0;
 	paralysis_time = 0;
-	drop_volume = 0;
-	drop_type_volume = 0;
-	drop_element = nullptr;
 
 	kind = ENEMY_KIND::LAST_BOSS;
 	state = ENEMY_STATE::IDOL;
@@ -178,6 +189,21 @@ LastBossHand::LastBossHand(const Location spawn_location, const bool left_hand)
 	hit_block.chip = nullptr;
 	hit_block.hit = false;
 	old_stage_hit = hit_block.hit;
+
+
+	drop_element = new ElementItem * [7];
+	drop_type_volume = 7;
+
+	int volume = 0;
+	for (int i = 0; i < drop_type_volume; i++)
+	{
+		volume = 1 + GetRand(2);
+
+		drop_element[i] = new ElementItem(static_cast<ELEMENT_ITEM>(i));
+
+		drop_element[i]->SetVolume(volume);
+		drop_volume += volume;
+	}
 }
 
 //-----------------------------------
@@ -185,7 +211,7 @@ LastBossHand::LastBossHand(const Location spawn_location, const bool left_hand)
 //-----------------------------------
 LastBossHand::~LastBossHand()
 {
-	for (int i = 0; i < SOIL_DROP; i++)
+	for (int i = 0; i < drop_type_volume; i++)
 	{
 		delete drop_element[i];
 	}
@@ -235,10 +261,12 @@ void LastBossHand::Update(const Player* player, const Stage* stage)
 		{
 			state = ENEMY_STATE::DEATH;
 
-			location.x = -100;
-			location.y = -100;
-			death_time = DEATH_TIME;
-		}
+		location.x = -100;
+		location.y = -100;
+		death_time = DEATH_TIME;
+
+		ItemController::GetInstance()->SpawnItem(this);
+	}
 
 		UpdateDamageLog();
 }
@@ -464,6 +492,7 @@ void LastBossHand::Punch()
 
 		if (!old_stage_hit && hit_block.hit)
 		{
+			PlaySoundMem(EnemySE::GetLastBossSE().punch, DX_PLAYTYPE_BACK);
 			speed = -(PUNCH_SPEED / 3);
 			attack = false;
 			standby_time = PUNCH_END_STANDBY_TIME;
@@ -490,6 +519,16 @@ void LastBossHand::Revival()
 	location = spawn_location;
 	state = ENEMY_STATE::MOVE;
 	move = static_cast<HAND_MOVE>(GetRand(2));
+
+	drop_volume = 0;
+	int volume;
+	for (int i = 0; i < drop_type_volume; i++)
+	{
+		volume = 1 + GetRand(2);
+
+		drop_element[i]->SetVolume(volume);
+		drop_volume += volume;
+	}
 }
 
 //-----------------------------------

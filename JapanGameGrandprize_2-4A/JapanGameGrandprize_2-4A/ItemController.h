@@ -6,14 +6,30 @@
 class ItemController
 {
 private:
+	static ItemController* instance; //インスタンス
+
+private:
+	//コンストラクタ
+	ItemController();
+
+public:
+	static ItemController* GetInstance()
+	{
+		if (instance == nullptr)
+		{
+			instance = new ItemController();
+		}
+
+		return instance;
+	}
+	//シングルトン
+private:
 
 	int item_volume; //生成しているアイテムの量
 	int item_max; //アイテムの生成できる最大数
 	Item** item; //アイテム
-public:
 
-	//コンストラクタ
-	ItemController();
+public:
 
 	//デストラクタ
 	~ItemController();

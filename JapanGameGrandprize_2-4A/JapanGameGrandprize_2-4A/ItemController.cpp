@@ -2,6 +2,8 @@
 #include "EnemyBase.h"
 #include "Player.h"
 
+ItemController* ItemController::instance = nullptr;
+
 //-----------------------------------
 //コンストラクタ
 //-----------------------------------
@@ -18,13 +20,16 @@ ItemController::ItemController()
 //-----------------------------------
 ItemController::~ItemController()
 {
-
-	for (int i = 0; i < item_max; i++)
+	if (item != nullptr)
 	{
-		delete item[i];
-	}
+		for (int i = 0; i < item_max; i++)
+		{
+			delete item[i];
+		}
 
-	delete[] item;
+		delete[] item;
+	}
+	instance = nullptr;
 }
 
 //-----------------------------------

@@ -395,8 +395,8 @@ void Stage::DrawStageBackground() const
 		break;
 
 	case 4:
-		DrawGraphF(-fmodf(background_location.x * 0.8, SCREEN_WIDTH), 0, background_image[1], TRUE);
-		DrawGraphF(-fmodf(background_location.x * 0.8, SCREEN_WIDTH) + SCREEN_WIDTH, 0, background_image[1], TRUE);
+		DrawGraphF(-fmodf(background_location.x * 0.8, SCREEN_WIDTH), 0, background_image[0], TRUE);
+		DrawGraphF(-fmodf(background_location.x * 0.8, SCREEN_WIDTH) + SCREEN_WIDTH, 0, background_image[0], TRUE);
 
 		DrawGraphF(-fmodf(background_location.x, SCREEN_WIDTH), 0, background_image[0], TRUE);
 		DrawGraphF(-fmodf(background_location.x, SCREEN_WIDTH) + SCREEN_WIDTH, 0, background_image[0], TRUE);

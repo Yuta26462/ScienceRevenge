@@ -242,6 +242,10 @@
     <ClCompile Include="Credit.cpp">
       <Filter>ソースファイル\Scene</Filter>
     </ClCompile>
+
+    <ClCompile Include="DeleteEffect.cpp">
+      <Filter>ソースファイル</Filter>
+    </ClCompile>
     <ClCompile Include="WyvernBreath.cpp">
       <Filter>ソースファイル\Enemy\EnmeyBullet</Filter>
     </ClCompile>
@@ -496,6 +500,11 @@
     <ClInclude Include="Credit.h">
       <Filter>ヘッダーファイル\Scene</Filter>
     </ClInclude>
+
+    <ClInclude Include="DeleteEffect.h">
+      <Filter>ヘッダーファイル</Filter>
+    </ClInclude>
+
     <ClInclude Include="WyvernBreath.h">
       <Filter>ヘッダーファイル\Enemy\EnemyBullet</Filter>
     </ClInclude>

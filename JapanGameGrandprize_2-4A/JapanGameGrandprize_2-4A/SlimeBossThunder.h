@@ -6,8 +6,10 @@
 class SlimeBossThunder :
     public EnemyBulletBase
 {
-    int image; //画像
+    int image[8]; //画像
     int magic_circle_image;
+    int image_type;
+    int image_type_change_time;
 
     int x_speed; //Xのスピード
     int y_speed; //Yのスピード

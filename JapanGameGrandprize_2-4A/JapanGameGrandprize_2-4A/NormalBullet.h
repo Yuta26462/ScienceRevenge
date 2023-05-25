@@ -17,10 +17,6 @@ private:
 	Bullet_Effect Melt[2];		//0:–{’e@1:‹OÕ
 	Bullet_Effect Paralysis[2];	//0:–{’e@1:‹OÕ
 	Bullet_Effect Poison[2];	//0:–{’e@1:‹OÕ
-	Delete_Effect exp;
-	Delete_Effect mel;
-	Delete_Effect par;
-	Delete_Effect poi;
 public:
 
 	NormalBullet();
