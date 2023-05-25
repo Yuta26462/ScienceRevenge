@@ -33,7 +33,7 @@ EnemySlime::EnemySlime(Location spawn_location)
 	area.width = 52;
 
 	location.x -= MAP_CHIP_SIZE / 2;
-	location.y -= MAP_CHIP_SIZE / 2;
+	//location.y -= MAP_CHIP_SIZE / 2;
 	wait_time = 0;
 	image_type = 0;
 	image_change_time = 0;
@@ -145,6 +145,14 @@ void EnemySlime::Update(const Player* player, const Stage* stage)
 	Location old_location = location;	//前の座標
 	HitMapChip hit_stage = { false,nullptr }; //ステージとの当たり判定
 
+#ifdef DEBUG
+	if (state != ENEMY_STATE::DEATH)
+	{
+		state = ENEMY_STATE::MOVE;
+	}
+#endif // DEBUG
+
+
 	switch (state)
 	{
 	case ENEMY_STATE::IDOL:
@@ -155,7 +163,11 @@ void EnemySlime::Update(const Player* player, const Stage* stage)
 
 		Move(player->GetLocation());
 
+#ifndef DEBUG
 		location.x += speed_x;
+#endif // !DEBUG
+
+		
 
 		hit_stage = HitStage(stage);
 		if (hit_stage.hit) //ステージとの当たり判定

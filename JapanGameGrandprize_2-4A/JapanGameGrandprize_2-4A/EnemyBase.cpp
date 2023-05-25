@@ -493,7 +493,7 @@ void EnemyBase::DrawDamageLog()const
 			break;
 		}
 
-		DrawFormatStringToHandle(draw_location.x - 20, draw_location.y - 110 - (LOG_TIME - damage_log[i].time),
+		DrawFormatStringToHandle(draw_location.x - 20, draw_location.y - 85 - (LOG_TIME - damage_log[i].time),
 			color, log_font[static_cast<int>(damage_log[i].congeniality)],
 			"%3d", damage_log[i].damage);
 
