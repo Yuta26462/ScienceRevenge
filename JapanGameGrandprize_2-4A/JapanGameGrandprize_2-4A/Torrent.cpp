@@ -148,7 +148,7 @@ void Torrent::Update(const Player* player, const Stage* stage)
 	{
 		state = ENEMY_STATE::MOVE;
 	}
-	else
+	else if (state != ENEMY_STATE::DEATH)
 	{
 		state = ENEMY_STATE::ATTACK;
 	}

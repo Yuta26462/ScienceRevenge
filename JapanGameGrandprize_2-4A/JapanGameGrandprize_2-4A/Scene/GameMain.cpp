@@ -35,7 +35,7 @@ GameMain::GameMain(short stage_num, unsigned int element_volume[PLAYER_ELEMENT],
 
 	char dis_stage_se[30];
 
-	if (this->stage_num != 4)
+	/*if (this->stage_num != 4)
 	{
 		sprintf_s(dis_stage_se, sizeof(dis_stage_se), "Sounds/BGM/Stage%d.wav", this->stage_num);
 
@@ -45,7 +45,7 @@ GameMain::GameMain(short stage_num, unsigned int element_volume[PLAYER_ELEMENT],
 				throw dis_stage_se;
 			}
 		}
-	}
+	}*/
 
 	if ((help_image[0] = LoadGraph("Images/Help/Normal_Help.png")) == -1)
 	{
@@ -598,7 +598,7 @@ void GameMain::Draw()const
 	//ƒ|[ƒY		•`‰æ
 	if (pause->IsPause() == true) { pause->Draw(); }
 
-
+	//DrawBox(0, 0, 1280, 720, 0x00ff00, TRUE);
 }
 
 void GameMain::SetHelpMode(bool is_help)

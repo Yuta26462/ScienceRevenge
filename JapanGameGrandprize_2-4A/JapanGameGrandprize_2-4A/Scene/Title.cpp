@@ -147,7 +147,7 @@ AbstractScene* Title::Update()
 		input_margin = 0;
 		MENU current_selection = static_cast<MENU>(select_menu);
 
-		unsigned int element_volume[PLAYER_ELEMENT] = { 100,100,100,100,100,100,100 };
+		unsigned int element_volume[PLAYER_ELEMENT] = { 10,10,10,10,10,10,10 };
 
 		Pouch* pouch;
 		pouch = new Pouch;

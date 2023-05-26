@@ -33,7 +33,7 @@ EnemySlime::EnemySlime(Location spawn_location)
 	area.width = 52;
 
 	location.x -= MAP_CHIP_SIZE / 2;
-	//location.y -= MAP_CHIP_SIZE / 2;
+	location.y -= MAP_CHIP_SIZE / 2;
 	wait_time = 0;
 	image_type = 0;
 	image_change_time = 0;
@@ -180,7 +180,7 @@ void EnemySlime::Update(const Player* player, const Stage* stage)
 				Location chip_location = hit_stage.chip->GetLocation();
 				Area chip_area = hit_stage.chip->GetArea();
 
-				/*if (hit_direction == STAGE_DIRECTION::RIGHT)
+				if (hit_direction == STAGE_DIRECTION::RIGHT)
 				{
 					location.x = chip_location.x +
 						(chip_area.width / 2) + (area.width / 2);
@@ -189,7 +189,7 @@ void EnemySlime::Update(const Player* player, const Stage* stage)
 				{
 					location.x = chip_location.x -
 						(chip_area.width / 2) - (area.width / 2);
-				}*/
+				}
 				location.x = old_location.x;
 				left_move = !left_move;
 				speed_x = -speed_x;
