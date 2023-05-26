@@ -334,10 +334,11 @@ void Player::Draw() const
 
 	for (int i = 0; i < effect_count; i++)
 	{
-		if (effect[i] != nullptr)
+		if (effect[i] == nullptr)
 		{
-			effect[i]->Draw();
+			break;
 		}
+		effect[i]->Draw();
 	}
 
 	//ダメージを受けた時点滅する
@@ -814,18 +815,19 @@ void Player::Update()
 
 	for (int i = 0; i < effect_count; i++)
 	{
-		if (effect[i] != nullptr)
+		if (effect[i] == nullptr)
 		{
-			if (effect[i]->GetEffectEnd())
-			{
-				delete effect[i];
-				effect[i] = nullptr;
-				SortEffect(i);
-			}
-			else
-			{
-				effect[i]->Update();
-			}
+			break;
+		}
+
+		effect[i]->Update();
+
+		if (effect[i]->GetEffectEnd())
+		{
+			delete effect[i];
+			effect[i] = nullptr;
+			SortEffect(i);
+			i--;
 		}
 	}
 

@@ -54,7 +54,7 @@ struct HitMapChip
 enum class CONGENIALITY
 {
 	WEAKNESS = 0,	//Žã“_
-	NOMAL,			//’Êí
+	NORMAL,			//’Êí
 	RESISTANCE,		//‘Ï«
 	INVALID,		//–³Œø
 };

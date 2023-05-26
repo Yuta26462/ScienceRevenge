@@ -486,7 +486,7 @@ void EnemyBase::DrawDamageLog()const
 		case CONGENIALITY::WEAKNESS:	//é„ì_
 			color = 0xff0000;
 			break;
-		case CONGENIALITY::NOMAL:
+		case CONGENIALITY::NORMAL:
 			color = 0xffffff;
 			break;
 		case CONGENIALITY::RESISTANCE:	//ëœê´
@@ -608,6 +608,6 @@ void EnemyBase::InitDamageLog()
 	{
 		damage_log[i].log = false;
 		damage_log[i].damage = -1;
-		damage_log[i].congeniality = CONGENIALITY::NOMAL;
+		damage_log[i].congeniality = CONGENIALITY::NORMAL;
 	}
 }

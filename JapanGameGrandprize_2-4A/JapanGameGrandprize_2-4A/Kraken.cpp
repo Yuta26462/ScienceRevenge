@@ -369,7 +369,7 @@ void Kraken::HitBullet(const BulletBase* bullet)
 		break;
 	case ATTRIBUTE::MELT:
 		damage = bullet->GetDamage();
-		damage_log[i].congeniality = CONGENIALITY::NOMAL;
+		damage_log[i].congeniality = CONGENIALITY::NORMAL;
 		break;
 	case ATTRIBUTE::POISON:
 		if (!poison)

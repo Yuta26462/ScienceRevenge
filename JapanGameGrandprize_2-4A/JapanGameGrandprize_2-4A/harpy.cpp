@@ -517,7 +517,7 @@ void Harpy::HitBullet(const BulletBase* bullet)
 		break;
 	case ATTRIBUTE::EXPLOSION: //”š”­ 
 		damage = bullet->GetDamage();
-		damage_log[i].congeniality = CONGENIALITY::NOMAL;
+		damage_log[i].congeniality = CONGENIALITY::NORMAL;
 
 		break;
 	case ATTRIBUTE::MELT: //—n‚©‚· 
@@ -526,11 +526,13 @@ void Harpy::HitBullet(const BulletBase* bullet)
 
 		break;
 	case ATTRIBUTE::POISON: //“Å@Žã“_
+		damage = bullet->GetDamage();
+		damage_log[i].congeniality = CONGENIALITY::WEAKNESS;
 		if (!poison)
 		{
 			poison = true;
 			poison_time = bullet->GetDebuffTime() * WEAKNESS_DEBUFF;
-			poison_damage = bullet->GetDamage();
+			poison_damage = bullet->GetDamageParSecond();
 		}
 		break;
 	case ATTRIBUTE::PARALYSIS: //–ƒáƒ Žã“_

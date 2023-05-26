@@ -455,15 +455,10 @@ void EnemySlime::HitBullet(const BulletBase* bullet)
 		damage_log[i].congeniality = CONGENIALITY::WEAKNESS;
 		break;
 	case ATTRIBUTE::POISON:
-		if (!poison)
-		{
-			poison_damage = bullet->GetDamage() * 0;
-			poison_time = bullet->GetDebuffTime() * 0;
-		}
 		break;
 	case ATTRIBUTE::PARALYSIS:
 		damage = bullet->GetDamage();
-		damage_log[i].congeniality = CONGENIALITY::NOMAL;
+		damage_log[i].congeniality = CONGENIALITY::NORMAL;
 		if (!paralysis)
 		{
 			paralysis = true;

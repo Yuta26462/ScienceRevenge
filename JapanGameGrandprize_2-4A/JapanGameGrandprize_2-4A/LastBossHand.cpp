@@ -609,15 +609,15 @@ void LastBossHand::HitBullet(const BulletBase* bullet)
 	{
 	case ATTRIBUTE::NORMAL:
 		damage = bullet->GetDamage();
-		damage_log[i].congeniality = CONGENIALITY::NOMAL;
+		damage_log[i].congeniality = CONGENIALITY::NORMAL;
 		break;
 	case ATTRIBUTE::EXPLOSION:
 		damage = bullet->GetDamage();
-		damage_log[i].congeniality = CONGENIALITY::NOMAL;
+		damage_log[i].congeniality = CONGENIALITY::NORMAL;
 		break;
 	case ATTRIBUTE::MELT:
 		damage = bullet->GetDamage();
-		damage_log[i].congeniality = CONGENIALITY::NOMAL;
+		damage_log[i].congeniality = CONGENIALITY::NORMAL;
 		break;
 	case ATTRIBUTE::POISON:
 	case ATTRIBUTE::PARALYSIS:

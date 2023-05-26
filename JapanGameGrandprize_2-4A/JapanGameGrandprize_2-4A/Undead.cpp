@@ -401,15 +401,15 @@ void Undead::HitBullet(const BulletBase* bullet)
 	{
 	case ATTRIBUTE::NORMAL:
 		damage = bullet->GetDamage();
-		damage_log[i].congeniality = CONGENIALITY::NOMAL;
+		damage_log[i].congeniality = CONGENIALITY::NORMAL;
 		break;
 	case ATTRIBUTE::EXPLOSION:
 		damage = bullet->GetDamage();
-		damage_log[i].congeniality = CONGENIALITY::NOMAL;
+		damage_log[i].congeniality = CONGENIALITY::NORMAL;
 		break;
 	case ATTRIBUTE::MELT:
 		damage = bullet->GetDamage();
-		damage_log[i].congeniality = CONGENIALITY::NOMAL;
+		damage_log[i].congeniality = CONGENIALITY::NORMAL;
 		break;
 	case ATTRIBUTE::POISON:
 		damage = bullet->GetDamage();
@@ -422,7 +422,7 @@ void Undead::HitBullet(const BulletBase* bullet)
 		break;
 	case ATTRIBUTE::PARALYSIS:
 		damage = bullet->GetDamage();
-		damage_log[i].congeniality = CONGENIALITY::NOMAL;
+		damage_log[i].congeniality = CONGENIALITY::NORMAL;
 		if (!paralysis)
 		{
 			paralysis_time = bullet->GetDebuffTime() * 0;
