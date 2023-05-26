@@ -182,7 +182,7 @@
     <ClCompile Include="Scene\DotByDot.cpp">
       <Filter>ソースファイル\Scene</Filter>
     </ClCompile>
-    <ClCompile Include="Scene\END.cpp">
+    <ClCompile Include="Scene\End.cpp">
       <Filter>ソースファイル\Scene</Filter>
     </ClCompile>
     <ClCompile Include="Scene\GameClear.cpp">
@@ -242,7 +242,6 @@
     <ClCompile Include="Credit.cpp">
       <Filter>ソースファイル\Scene</Filter>
     </ClCompile>
-
     <ClCompile Include="DeleteEffect.cpp">
       <Filter>ソースファイル</Filter>
     </ClCompile>
@@ -440,7 +439,7 @@
     <ClInclude Include="Scene\DotByDot.h">
       <Filter>ヘッダーファイル\Scene</Filter>
     </ClInclude>
-    <ClInclude Include="Scene\END.h">
+    <ClInclude Include="Scene\End.h">
       <Filter>ヘッダーファイル\Scene</Filter>
     </ClInclude>
     <ClInclude Include="Scene\GameClear.h">
@@ -500,11 +499,9 @@
     <ClInclude Include="Credit.h">
       <Filter>ヘッダーファイル\Scene</Filter>
     </ClInclude>
-
     <ClInclude Include="DeleteEffect.h">
       <Filter>ヘッダーファイル</Filter>
     </ClInclude>
-
     <ClInclude Include="WyvernBreath.h">
       <Filter>ヘッダーファイル\Enemy\EnemyBullet</Filter>
     </ClInclude>

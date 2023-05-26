@@ -30,7 +30,7 @@
 #define TORRENT_DROP 20
 
 //葉っぱを飛ばしている時間
-#define LEAF_CUTTER_TIME 1200
+#define LEAF_CUTTER_TIME 420
 
 //次の葉っぱを飛ばす攻撃に移る時間
 #define LEAF_CUTTER_INTERVAL 300
@@ -241,9 +241,12 @@ void  Torrent::Attack(Location player_location)
 //-----------------------------------
 void Torrent::Tackle()
 {
-
 	if (attack_time < 0)
 	{
+		if(CheckSoundMem(EnemySE::GetTorrentSE().tackle_se)==0)
+		{
+			PlaySoundMem(EnemySE::GetTorrentSE().tackle_se, DX_PLAYTYPE_LOOP);
+		}
 		location.x += speed;
 
 		if (left_move)
@@ -265,6 +268,7 @@ void Torrent::Tackle()
 
 		if (tackle_end) //タックル終了
 		{
+			StopSoundMem(EnemySE::GetTorrentSE().tackle_se);
 			attack = false;
 			int next_attack;	//次の攻撃
 			next_attack = GetRand(10) + 1;  //次の攻撃の設定
@@ -312,7 +316,10 @@ void Torrent::Tackle()
 //-----------------------------------
 void Torrent::LeafCutter(const Location player_location)
 {
-
+	if (CheckSoundMem(EnemySE::GetTorrentSE().leaves_cutter) == 0)
+	{
+		PlaySoundMem(EnemySE::GetTorrentSE().leaves_cutter, DX_PLAYTYPE_BACK);
+	}
 	attack_time--;
 	CreateLeaf(player_location);
 	if (attack_time < 0) //攻撃の終了
@@ -333,12 +340,12 @@ void Torrent::LeafCutter(const Location player_location)
 				if (left_move) //左に向いている
 				{
 					speed = -TORRENT_SPEED;
-					tackle_end_point = static_cast<int>(area.width / 2);
+					tackle_end_point += static_cast<int>(area.width / 2) + MAP_CHIP_SIZE;
 				}
 				else
 				{
 					speed = TORRENT_SPEED;
-					tackle_end_point = static_cast<int>(SCREEN_WIDTH - area.width / 2);
+					tackle_end_point += static_cast<int>(SCREEN_WIDTH - area.width / 2) - MAP_CHIP_SIZE;
 				}
 				break;
 			case TORRENT_ATTACK::DROP_NUTS:
@@ -564,7 +571,10 @@ AttackResource Torrent::Hit()
 //-----------------------------------
 void Torrent::Death()
 {
-
+	StopSoundMem(EnemySE::GetTorrentSE().break_nut_se);
+	StopSoundMem(EnemySE::GetTorrentSE().falling_nut_se);
+	StopSoundMem(EnemySE::GetTorrentSE().leaves_cutter);
+	StopSoundMem(EnemySE::GetTorrentSE().tackle_se);
 	can_delete = true;
 }
 
@@ -647,8 +657,6 @@ void Torrent::Animation()
 		image_argument++;
 	}
 }
-
-
 
 //-----------------------------------
 //描画

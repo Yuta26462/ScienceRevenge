@@ -2,7 +2,7 @@
 #include "AbstractScene.h"
 #include <string>
 
-class END :
+class End :
     public AbstractScene
 {
 private:
@@ -36,10 +36,10 @@ private:
 public:
 
     //コンストラクタ
-    END();
+    End();
 
     //デストラクタ
-    ~END();
+    ~End();
 
     //描画以外の更新を実行
     AbstractScene* Update() override;

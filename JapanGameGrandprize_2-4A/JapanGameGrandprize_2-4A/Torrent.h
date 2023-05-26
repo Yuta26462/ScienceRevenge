@@ -1,5 +1,6 @@
 #pragma once
 #include "EnemyBase.h"
+#include "EnemySE.h"
 #include "BoxCollider.h"
 #include "Player.h"
 
@@ -27,6 +28,7 @@ private:
     int animation; //アニメーション
     int image_argument; //画像の引数
 
+
     TORRENT_ATTACK attack_state; //攻撃の状態
 private:
 
@@ -50,6 +52,7 @@ private:
 
     //アニメーション
     void Animation();
+
 public:
 
     //コンストラクタ

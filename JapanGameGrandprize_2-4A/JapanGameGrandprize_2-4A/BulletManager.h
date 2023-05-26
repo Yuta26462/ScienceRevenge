@@ -30,6 +30,7 @@ private:
     int enemy_nuts_count; //木の実の生成数
     int enemy_bullet_max; //弾の生成可能数
     int enemy_nuts_max; //木の実の生成可能数
+
 public:
 
     //デストラクタ

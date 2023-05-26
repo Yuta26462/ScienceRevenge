@@ -52,10 +52,11 @@ void Credit::Draw()const
 
 	SetFontSize(34);                             //サイズを35に変更
 
-	DrawString(400,200,"無料効果音で遊ぼう！\n",cr);
-	DrawString(400,250,"DOVA-SYNDROME\n",cr);
-	DrawString(400,300,"フリー効果音素材 くらげ工匠\n",cr);
+	DrawString(400,200,"フリー音楽素材 H/MIX GALLERY\n",cr);
+	DrawString(400,250,"フリー効果音素材 くらげ工匠\n",cr); 
+	DrawString(400,300,"無料効果音で遊ぼう！\n",cr); 
 	DrawString(400,350,"TAM Music Factory\n",cr);
-	DrawString(400,400,"効果音ラボ\n",cr);
+	DrawString(400,400,"DOVA-SYNDROME\n",cr);
+	DrawString(400, 450,"効果音ラボ\n", cr); 
 	
 }

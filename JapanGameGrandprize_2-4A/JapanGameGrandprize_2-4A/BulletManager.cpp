@@ -238,6 +238,7 @@ void BulletManager::CreateEnemyNuts(class EnemyBulletBase* nuts)
     enemy_nuts[enemy_nuts_count] = dynamic_cast<EnemyBulletBase*>(nuts);
 
     enemy_nuts_count++;
+    PlayStreamSoundMem(EnemySE::GetTorrentSE().falling_nut_se, DX_PLAYTYPE_BACK);
 }
 
 //-----------------------------------
@@ -269,6 +270,7 @@ void BulletManager::DeleteEnemyNuts(const EnemyBulletBase* nuts)
     {
         if (enemy_nuts[i] == nuts)
         {
+            PlaySoundMem(EnemySE::GetTorrentSE().break_nut_se, DX_PLAYTYPE_BACK);
             delete enemy_nuts[i];
             enemy_nuts[i] = nullptr;
 

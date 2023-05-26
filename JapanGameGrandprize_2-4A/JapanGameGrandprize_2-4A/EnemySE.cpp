@@ -10,6 +10,8 @@ NomalEnemySE EnemySE::ghost_se = { 0,0 }; //ゴーストSE
 NomalEnemySE EnemySE::wyvern_se = { 0,0 }; //ワイバーンSE
 LastBossSE EnemySE::last_boss_se = {};
 LastBossBarrierSE EnemySE::last_boss_barrier_se = {};
+TorrentSE EnemySE::torrent_se = {};						//トレントSE
+
 int EnemySE::down_se = 0;		//ダウン時SE
 int EnemySE::explosion_se = 0;	//explosion被弾SE
 int EnemySE::melt_se = 0;		//melt被弾SE
@@ -36,6 +38,15 @@ void EnemySE::LoadSound()
 	last_boss_barrier_se.appearance = LoadSoundMem("Sounds/SE/Stage/EnemyAttack/shield_appearance.wav");
 	last_boss_barrier_se.breaked = LoadSoundMem("Sounds/SE/Stage/EnemyAttack/shield_break.wav");
 	last_boss_barrier_se.hit = LoadSoundMem("Sounds/SE/Stage/EnemyAttack/shield_get_damage.wav");
+
+	SetCreateSoundDataType(DX_SOUNDDATATYPE_MEMNOPRESS);
+	torrent_se.break_nut_se = LoadSoundMem("Sounds/SE/Stage/EnemyAttack/TorrentAttack.wav", 8);
+	torrent_se.falling_nut_se = LoadSoundMem("Sounds/SE/Stage/EnemyAttack/TorrentAttack4.wav", 8);
+	SetCreateSoundDataType(DX_SOUNDDATATYPE_FILE);
+	torrent_se.tackle_se = LoadSoundMem("Sounds/SE/Stage/EnemyAttack/Torrentataack2.wav");
+	torrent_se.leaves_cutter = LoadSoundMem("Sounds/SE/Stage/EnemyAttack/TorrentAttack3.wav");
+
+
 
 	SetCreateSoundDataType(DX_SOUNDDATATYPE_MEMNOPRESS);
 	explosion_se = LoadSoundMem("Sounds/SE/Stage/PlayerShot/explosion.wav",8);
@@ -168,4 +179,9 @@ LastBossSE EnemySE::GetLastBossSE()
 LastBossBarrierSE EnemySE::GetBarrierSE() 
 {
 	return last_boss_barrier_se;
+}
+
+TorrentSE EnemySE::GetTorrentSE()
+{
+	return torrent_se;
 }

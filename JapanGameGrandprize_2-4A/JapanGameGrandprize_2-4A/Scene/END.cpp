@@ -1,4 +1,4 @@
-#include "END.h"
+#include "End.h"
 #include "DxLib.h"
 #include "Title.h"
 #include "../PadInput.h"
@@ -6,7 +6,7 @@
 //-----------------------------------
 // コンストラクタ
 //-----------------------------------
-END::END()
+End::End()
 {
 	title_font = CreateFontToHandle("Algerian", 100, 1, DX_FONTTYPE_ANTIALIASING_EDGE_8X8, -1, 8);
 
@@ -42,7 +42,7 @@ END::END()
 //-----------------------------------
 // デストラクタ
 //-----------------------------------
-END::~END()
+End::~End()
 {
 	StopSoundMem(background_music);
 	DeleteSoundMem(background_music);
@@ -56,7 +56,7 @@ END::~END()
 //-----------------------------------
 // 更新
 //-----------------------------------
-AbstractScene* END::Update()
+AbstractScene* End::Update()
 {
 	// 操作間隔時間
 	const int max_input_margin = 15;
@@ -112,7 +112,7 @@ AbstractScene* END::Update()
 //-----------------------------------
 // 描画
 //-----------------------------------
-void END::Draw()const
+void End::Draw()const
 {
 	DrawGraph(0, 0, background_image, FALSE);
 	DrawStringToHandle(GetDrawCenterX("Thanks!", title_font), 100, "Thanks!", 0xE1D000, title_font, 0xFFFFFF);

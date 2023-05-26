@@ -19,6 +19,13 @@ struct LastBossBarrierSE
     int breaked;
     int hit;
 };
+struct TorrentSE
+{
+    int tackle_se;        //タックル
+    int leaves_cutter;    //葉っぱ飛ばし
+    int break_nut_se;     //木の実が何かに当たった音
+    int falling_nut_se;   //木の実落ちる音
+};
 
 class EnemySE
 {
@@ -31,6 +38,7 @@ private:
    static NomalEnemySE wyvern_se; //ワイバーンSE
    static LastBossSE last_boss_se; //ラスボスSE
    static LastBossBarrierSE last_boss_barrier_se;
+   static TorrentSE torrent_se;
 
    static int down_se; //ダウン時SE
 
@@ -63,6 +71,10 @@ public:
 
     static LastBossBarrierSE GetBarrierSE();
 
+    //トレントSEの取得
+    static TorrentSE GetTorrentSE();
+
     static int GetBulletSE(const ATTRIBUTE);
+
 };
 

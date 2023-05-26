@@ -287,6 +287,28 @@ Player::~Player()
 		delete element[i];
 	}
 	delete[] element;
+
+	//ƒTƒEƒ“ƒhíœ
+	StopSoundMem(bulletssound);
+	DeleteSoundMem(bulletssound);
+
+	StopSoundMem(flysound);
+	DeleteSoundMem(flysound);
+
+	StopSoundMem(healsound);
+	DeleteSoundMem(healsound);
+
+	StopSoundMem(deathsound);
+	DeleteSoundMem(deathsound);
+
+	StopSoundMem(open_menu);
+	DeleteSoundMem(open_menu);
+
+	StopSoundMem(close_menu);
+	DeleteSoundMem(close_menu);
+
+	StopSoundMem(heal_sound);
+	DeleteSoundMem(heal_sound);
 }
 
 //-----------------------------------
