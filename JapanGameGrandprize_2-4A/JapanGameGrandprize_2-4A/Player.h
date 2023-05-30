@@ -59,6 +59,7 @@ private:
 	int* image;						//‰æ‘œ—p•Ï”
 	int* jump_image;				//”ò‚ñ‚Å‚é‚Æ‚«‚Ì‰æ‘œ
 	int* attribute_images;			//‘®«‚Ì‰æ‘œ
+	int normal_image;				//ƒm[ƒ}ƒ‹‘®«‚Ì’e‚Ì‰æ‘œ
 	int hp_image;
 	int effect_count;
 	int hp_image_top;

@@ -177,6 +177,7 @@ Player::Player(Stage* stage, unsigned int element_volume[PLAYER_ELEMENT], Pouch*
 	normal.number_of_bullets = 50;
 	normal.time = 0;
 	normal.make_bool = true;
+	normal_image = LoadGraph("Images/Player/Normal_Bullet.png");
 
 	bullet = new BulletBase * [BULLET_MAX];
 
@@ -465,7 +466,8 @@ void Player::PlayerUiDraw(float x, float y) const
 	switch (display_attribute)
 	{
 	case 0:
-		DrawStringF(hp_start, chemical_formula_y, "--", 0x00ff00);
+		DrawRotaGraph(chemical_icon_x, chemical_icon_y, 1, 0,
+			normal_image, TRUE);
 		DrawStringF(bullet_remain_x, bullet_remain_y, "--", 0x00ff00);
 		break;
 	case 1:
