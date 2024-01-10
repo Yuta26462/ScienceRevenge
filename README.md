@@ -1,14 +1,14 @@
-# GFF2-4A
-
-## Elemental War
+# Science Revenge
 このゲームは様々な要素やエネミーを駆け巡り、ステージをクリアを目指すゲームです。
-<br><br>
+<br>
+🔗[紹介サイト](https://miyagi-yuta.com/science-revenge/)
+![Image](Preview.jpg)
 
-## 動作環境
+## **動作環境**
+
 対象OS：Windows 10 以降  
- 操作機器：コントローラー(XInputのみ)
- <br><br>
- 
+操作機器：コントローラー(XInputのみ)
+  <br><br>
 ## 操作方法
 ### タイトル画面
 |動作 |モード1		|モード2		|
@@ -26,11 +26,3 @@
 |アクション動作	|B	|A	|
 |スライムボールを投げる	|右スティック + RB|右スティック + RB|
 |ポーズ|START	|START	|
-
-
-<br>
-
-
-## ライセンス  
-
-### 音声
